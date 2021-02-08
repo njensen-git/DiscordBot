@@ -20,11 +20,10 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
+    if message.content.startswith('$commands'):
+        await message.channel.send('$skills Name Ability for skill cds and such\n$loreme Name for lore blurb')
+
     #Get the little lore blurb in the champ file
-    #only workable format is $loreme name name2
-    #but it wont crash if thats not what you get
-
-
     if message.content.startswith('$loreme'):
         info = message.content
         infoList = namecheck(info)
