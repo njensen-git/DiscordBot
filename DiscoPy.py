@@ -23,13 +23,7 @@ async def on_message(message):
     #Get the little lore blurb in the champ file
     #only workable format is $loreme name name2
     #but it wont crash if thats not what you get
-# getVersion = requests.get("https://ddragon.leagueoflegends.com/realms/na.json")
-# ddVersion = getVersion.json()['dd']
-# print(ddVersion)
-# champName = "Jhin"
-# champURL = "http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/champion/{}.json"
-# response = requests.get(champURL.format(ddVersion,champName))
-# print(response.status_code)
+
 
     if message.content.startswith('$loreme'):
         name = message.content
@@ -60,9 +54,10 @@ async def on_message(message):
             'r': 3
         }
         whichspell = ability[splitname[2]]
-        print(whichspell)
-        print(direction.format(splitname[1]))
-        print(splitname[1])
+        #couple test prints for relevant variables
+        # print(whichspell)
+        # print(direction.format(splitname[1]))
+        # print(splitname[1])
         try:
             with open(direction.format(splitname[1])) as f:
                 data = json.load(f)
