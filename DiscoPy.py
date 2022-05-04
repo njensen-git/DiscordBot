@@ -1,6 +1,7 @@
 import discord
 import json
 import requests
+import youtube.dl
 client = discord.Client()
 
 #instantiate the bot
@@ -103,10 +104,9 @@ def namecheck(name):
 
 def getChampInfo(name):
     champURL = "http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/champion/{}.json"
-    champName = name
     getVersion = requests.get("https://ddragon.leagueoflegends.com/realms/na.json")
     ddVersion = getVersion.json()['dd']
-    response = requests.get(champURL.format(ddVersion,champName))
+    response = requests.get(champURL.format(ddVersion,name))
     return response
 
 client.run('ODA3MDI2Njc3MjAwNzE1Nzg3.YByAKQ.S_dNhcCdFgYFEQAwMNJ8HDLWydU')
